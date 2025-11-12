@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberFlix | Tanishka Mali – Security Portfolio</title>
+  <meta name="description" content="Tanishka Mali – Cybersecurity portfolio. Threat analysis, reverse engineering, CTFs, and secure software projects." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23E50914'/><text x='50' y='58' font-size='56' text-anchor='middle' fill='white' font-family='Arial'>C</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { inter: ["Inter", "ui-sans-serif", "system-ui"] },
+          colors: {
+            primary: { 500: '#E50914', 600: '#B2070F' },
+            secondary: { 500: '#141414', 600: '#0F0F0F' }
+          },
+          boxShadow: {
+            glow: '0 0 0 1px rgba(229,9,20,.35), 0 12px 24px -8px rgba(0,0,0,.7)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    html, body { scroll-behavior: smooth; }
+    /* Horizontal row scroll (Netflix style) */
+    .row-scroll { display: grid; grid-auto-flow: column; grid-auto-columns: 18rem; gap: 1rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding-bottom: .5rem; }
+    .row-scroll > * { scroll-snap-align: start; }
+    .card-zoom { transform: translateY(0) scale(1); transition: transform .25s ease, box-shadow .25s ease; }
+    .card-zoom:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 12px 30px -12px rgba(0,0,0,.6); }
+    .glass { background: linear-gradient(180deg, rgba(20,20,20,.2), rgba(20,20,20,.5)); backdrop-filter: blur(6px); }
+  </style>
+</head>
+<body class="bg-secondary-500 text-gray-100 min-h-screen font-inter">
+
+  <!-- ===== Navbar (as Custom Element) ===== -->
+  <custom-navbar></custom-navbar>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+
+    <!-- ===== Hero ===== -->
+    <section class="relative h-[26rem] md:h-[30rem] rounded-2xl overflow-hidden shadow-glow">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop" alt="Cybersecurity background" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-secondary-500 via-black/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl md:text-5xl font-black leading-tight">Secure Your Digital Future</h1>
+          <p class="text-lg md:text-xl text-gray-300 mt-3">Graduate cybersecurity professional focused on reverse engineering, vulnerability assessment, and AI‑assisted defense. Active CTF competitor.</p>
+          <div class="flex flex-wrap items-center gap-3 mt-6">
+            <a href="#projects" class="bg-primary-500 hover:bg-primary-600 px-6 py-3 rounded-md font-semibold">View Projects</a>
+            <a href="#contact" class="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-md font-semibold">Contact Me</a>
+            <a href="#resume" class="inline-flex items-center gap-2 text-gray-200 hover:text-white"> <i data-feather="download" class="w-5 h-5"></i> Resume </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Category Pills ===== -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold mb-4">Explore My Work</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <a href="#projects" class="card-zoom bg-secondary-600 rounded-xl p-4 h-36 flex items-center justify-center hover:ring-2 ring-primary-500">
+          <div class="text-center"><i data-feather="code" class="w-8 h-8 mx-auto mb-2"></i><h3>Projects</h3></div>
+        </a>
+        <a href="#education" class="card-zoom bg-secondary-600 rounded-xl p-4 h-36 flex items-center justify-center hover:ring-2 ring-primary-500">
+          <div class="text-center"><i data-feather="book" class="w-8 h-8 mx-auto mb-2"></i><h3>Education</h3></div>
+        </a>
+        <a href="#experience" class="card-zoom bg-secondary-600 rounded-xl p-4 h-36 flex items-center justify-center hover:ring-2 ring-primary-500">
+          <div class="text-center"><i data-feather="briefcase" class="w-8 h-8 mx-auto mb-2"></i><h3>Experience</h3></div>
+        </a>
+        <a href="#competitions" class="card-zoom bg-secondary-600 rounded-xl p-4 h-36 flex items-center justify-center hover:ring-2 ring-primary-500">
+          <div class="text-center"><i data-feather="award" class="w-8 h-8 mx-auto mb-2"></i><h3>CTFs</h3></div>
+        </a>
+        <a href="#papers" class="card-zoom bg-secondary-600 rounded-xl p-4 h-36 flex items-center justify-center hover:ring-2 ring-primary-500">
+          <div class="text-center"><i data-feather="file-text" class="w-8 h-8 mx-auto mb-2"></i><h3>Papers</h3></div>
+        </a>
+        <a href="#certifications" class="card-zoom bg-secondary-600 rounded-xl p-4 h-36 flex items-center justify-center hover:ring-2 ring-primary-500">
+          <div class="text-center"><i data-feather="shield" class="w-8 h-8 mx-auto mb-2"></i><h3>Certs</h3></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Featured Rows (Netflix style) ===== -->
+    <section id="projects" class="mt-12 space-y-8">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold">Featured Projects</h2>
+        <a class="text-primary-500 hover:underline" href="#projects">View All</a>
+      </div>
+      <div class="row-scroll">
+        <!-- Project: CyberProbe -->
+        <article class="relative bg-secondary-600 rounded-xl overflow-hidden card-zoom">
+          <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" alt="Terminals and code" />
+          <div class="p-4 space-y-2">
+            <h3 class="font-bold text-lg">CyberProbe</h3>
+            <p class="text-sm text-gray-300">Automated framework orchestrating nmap/zmap with modular, containerized tooling, integrity checks, and a streamlined CLI for pentesting workflows.</p>
+            <div class="flex gap-2 text-xs text-gray-400"><span>Python</span><span>Docker</span><span>Linux</span></div>
+          </div>
+        </article>
+        <!-- Project: TraceMap -->
+        <article class="relative bg-secondary-600 rounded-xl overflow-hidden card-zoom">
+          <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Reverse engineering" />
+          <div class="p-4 space-y-2">
+            <h3 class="font-bold text-lg">TraceMap</h3>
+            <p class="text-sm text-gray-300">Cross‑platform reverse‑engineering tool using Frida for trace generation; integrates with IDA Pro via a customized Tenet plugin.</p>
+            <div class="flex gap-2 text-xs text-gray-400"><span>Frida</span><span>IDA Pro</span><span>ARM64/x64</span></div>
+          </div>
+        </article>
+        <!-- Add placeholders that you can swap later -->
+        <article class="relative bg-secondary-600 rounded-xl overflow-hidden card-zoom">
+          <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1200&auto=format&fit=crop" alt="Network" />
+          <div class="p-4 space-y-2">
+            <h3 class="font-bold text-lg">Supply‑Chain Defense (Demo)</h3>
+            <p class="text-sm text-gray-300">Signing & provenance demo with Sigstore + SLSA attestations for container images.</p>
+            <div class="flex gap-2 text-xs text-gray-400"><span>Sigstore</span><span>SLSA</span><span>GCP</span></div>
+          </div>
+        </article>
+        <article class="relative bg-secondary-600 rounded-xl overflow-hidden card-zoom">
+          <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=1200&auto=format&fit=crop" alt="Chat app" />
+          <div class="p-4 space-y-2">
+            <h3 class="font-bold text-lg">Secure Chat (Demo)</h3>
+            <p class="text-sm text-gray-300">E2E encryption prototype with forward secrecy and basic deniability features.</p>
+            <div class="flex gap-2 text-xs text-gray-400"><span>Crypto</span><span>Web</span><span>Protocol</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Education ===== -->
+    <section id="education" class="mt-16">
+      <h2 class="text-2xl font-bold mb-6">Education</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-secondary-600 rounded-xl p-5 glass">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="text-xl font-bold">Pennsylvania State University</h3>
+              <p class="text-gray-400">M.S. Cybersecurity Analytics & Operations • Aug 2024 – May 2026</p>
+              <p class="text-gray-300 mt-2">GPA: 3.98 • Focus: Reverse Engineering, Risk & Incident Response.</p>
+            </div>
+            <div class="bg-primary-500/90 rounded-full p-2"><i data-feather="book-open" class="w-5 h-5"></i></div>
+          </div>
+        </div>
+        <div class="bg-secondary-600 rounded-xl p-5 glass">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="text-xl font-bold">Savitribai Phule Pune University</h3>
+              <p class="text-gray-400">B.E. Computer Engineering • Sept 2021 – May 2024</p>
+              <p class="text-gray-300 mt-2">GPA: 3.56 • Emphasis: Systems & Security.</p>
+            </div>
+            <div class="bg-primary-500/90 rounded-full p-2"><i data-feather="book-open" class="w-5 h-5"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Experience ===== -->
+    <section id="experience" class="mt-16">
+      <h2 class="text-2xl font-bold mb-6">Experience</h2>
+      <div class="space-y-4">
+        <div class="bg-secondary-600 rounded-xl p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-xl font-bold">Teaching Assistant – Cyber 366 & SRA 433</h3>
+              <p class="text-gray-400">Penn State College of IST • Aug 2024 – Present</p>
+            </div>
+            <div class="bg-primary-500/90 rounded-full p-2"><i data-feather="shield" class="w-5 h-5"></i></div>
+          </div>
+          <ul class="mt-4 space-y-2 list-disc list-inside text-gray-300">
+            <li>Delivered malware analysis & reverse engineering labs with Ghidra/IDA Pro; supported C/assembly review.</li>
+            <li>Guided deception theory & counter‑deception techniques; taught analytic methods incl. trace clustering.</li>
+          </ul>
+        </div>
+        <div class="bg-secondary-600 rounded-xl p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-xl font-bold">Vulnerability Management Intern</h3>
+              <p class="text-gray-400">Balbird Industries • Jun 2023 – Dec 2023</p>
+            </div>
+            <div class="bg-primary-500/90 rounded-full p-2"><i data-feather="activity" class="w-5 h-5"></i></div>
+          </div>
+          <ul class="mt-4 space-y-2 list-disc list-inside text-gray-300">
+            <li>Ran ERP assessments with Nessus/OpenVAS/OWASP ZAP; fixed DOM‑XSS via input validation & CSP.</li>
+            <li>Built lockout + pilot 2FA; thresholds on failed logins with cooldown; improved auth resilience.</li>
+          </ul>
+        </div>
+        <div class="bg-secondary-600 rounded-xl p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-xl font-bold">Software Developer Intern</h3>
+              <p class="text-gray-400">Keenhour (99 Digital) • Feb 2023 – May 2023</p>
+            </div>
+            <div class="bg-primary-500/90 rounded-full p-2"><i data-feather="cpu" class="w-5 h-5"></i></div>
+          </div>
+          <ul class="mt-4 space-y-2 list-disc list-inside text-gray-300">
+            <li>Boosted load speed 40% via code‑splitting & lazy loading (Webpack/React.lazy).</li>
+            <li>Hardened reliability with Axios retries/backoff; triaged downtime by ELK analysis and caching.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTFs ===== -->
+    <section id="competitions" class="mt-16">
+      <h2 class="text-2xl font-bold mb-6">CTF Participation</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-secondary-600 rounded-xl p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-xl font-bold">Mountain West Cyber Challenge</h3>
+              <p class="text-gray-400">4th Place • 2024</p>
+            </div>
+            <div class="bg-primary-500/90 rounded-full p-2"><i data-feather="award" class="w-5 h-5"></i></div>
+          </div>
+          <p class="mt-3 text-gray-300">Privilege escalation via token tampering; BAC/IDOR exploitation; SSH key abuse to recover evidence.</p>
+        </div>
+        <div class="bg-secondary-600 rounded-xl p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-xl font-bold">iCTF – International CTF</h3>
+              <p class="text-gray-400">13th Place • 2024</p>
+            </div>
+            <div class="bg-primary-500/90 rounded-full p-2"><i data-feather="flag" class="w-5 h-5"></i></div>
+          </div>
+          <p class="mt-3 text-gray-300">Prompt‑engineering for data exfil flags; Overpass API OSINT; decrypted an 8‑bit PyTorch model to restore accuracy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Certifications ===== -->
+    <section id="certifications" class="mt-16">
+      <h2 class="text-2xl font-bold mb-6">Certifications</h2>
+      <div class="bg-secondary-600 rounded-xl p-5">
+        <div class="flex items-center gap-3"><i data-feather="shield" class="w-5 h-5"></i><span class="font-semibold">CompTIA Security+ (SY0‑701)</span></div>
+        <p class="text-gray-300 mt-2">Threats, risk, IR, cryptography, secure architectures, IAM, and compliance frameworks (NIST/ISO).</p>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section id="skills" class="mt-16">
+      <h2 class="text-2xl font-bold mb-6">Technical Skills</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="bg-secondary-600 rounded-xl p-5 space-y-2 text-gray-300">
+          <li><strong>Security</strong>: Threat Intel, Vuln/Risk, Network (FW/ACL/DNS/IDS), Endpoint, IAM (SSO/MFA), SIEM/IR, RE (Ghidra/IDA), DFIR (Autopsy/Volatility), Crypto, MITRE ATT&CK, OWASP Top 10.</li>
+          <li><strong>AI/ML</strong>: Prompt Eng, NLP, LLMs, data analytics.</li>
+        </ul>
+        <ul class="bg-secondary-600 rounded-xl p-5 space-y-2 text-gray-300">
+          <li><strong>Platforms</strong>: Linux, Windows, Docker, Kubernetes, AWS, Azure, GCP, Jenkins.</li>
+          <li><strong>Languages</strong>: Python, C/C++, SQL, Java, Assembly, JavaScript.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Papers (placeholder section you can expand) ===== -->
+    <section id="papers" class="mt-16">
+      <h2 class="text-2xl font-bold mb-6">Papers & Writing</h2>
+      <div class="bg-secondary-600 rounded-xl p-5">
+        <p class="text-gray-300">Add links to white papers, course reports, or blog posts here. (Optional)</p>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="mt-16">
+      <h2 class="text-2xl font-bold mb-6">Get in Touch</h2>
+      <div class="bg-secondary-600 rounded-xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="space-y-1">
+          <p class="text-lg font-semibold">Tanishka Ganesh Mali</p>
+          <p class="text-gray-300">Graduate Researcher • Security Engineer</p>
+        </div>
+        <div class="flex flex-wrap gap-3 items-center">
+          <a class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-md" href="mailto:tjm7431@psu.edu"><i data-feather="mail" class="w-4 h-4"></i> Email</a>
+          <a class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-md" href="https://www.linkedin.com/in/tanishkamali/" target="_blank" rel="noopener"><i data-feather="linkedin" class="w-4 h-4"></i> LinkedIn</a>
+          <a class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-md" href="https://github.com/tanishkamali14" target="_blank" rel="noopener"><i data-feather="github" class="w-4 h-4"></i> GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Resume Anchor ===== -->
+    <section id="resume" class="mt-16">
+      <h2 class="text-2xl font-bold mb-4">Resume</h2>
+      <p class="text-gray-300">Place your PDF as <code>resume.pdf</code> in the same folder and this button will download it.</p>
+      <a class="mt-3 inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 px-5 py-3 rounded-md font-semibold" href="./resume.pdf" download>
+        <i data-feather="download" class="w-5 h-5"></i> Download Resume
+      </a>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="border-t border-white/10 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-gray-400">
+      <p>© <span id="year"></span> Tanishka Mali • CyberFlix</p>
+      <div class="flex items-center gap-4">
+        <button id="themeToggle" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-md"><i data-feather="moon" class="w-4 h-4"></i><span>Theme</span></button>
+        <a href="#top" class="hover:text-white">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Custom Navbar Definition ===== -->
+  <script>
+    class CustomNavbar extends HTMLElement {
+      connectedCallback() {
+        this.innerHTML = `
+        <header class="fixed top-0 left-0 right-0 z-50">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mt-4 flex items-center justify-between rounded-2xl bg-black/40 backdrop-blur border border-white/10 px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="h-8 w-8 rounded bg-primary-500 grid place-content-center font-black">C</div>
+                <a href="#" class="text-xl font-black tracking-tight">CyberFlix</a>
+              </div>
+              <nav class="hidden md:flex items-center gap-6 text-sm">
+                <a class="hover:text-white text-gray-300" href="#projects">Projects</a>
+                <a class="hover:text-white text-gray-300" href="#experience">Experience</a>
+                <a class="hover:text-white text-gray-300" href="#education">Education</a>
+                <a class="hover:text-white text-gray-300" href="#competitions">CTFs</a>
+                <a class="hover:text-white text-gray-300" href="#skills">Skills</a>
+                <a class="hover:text-white text-gray-300" href="#contact">Contact</a>
+              </nav>
+              <button id="menuBtn" class="md:hidden inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-md">
+                <i data-feather="menu" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+          <div id="mobileNav" class="md:hidden hidden mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mt-2 rounded-2xl bg-black/60 backdrop-blur border border-white/10 px-4 py-3 flex flex-col">
+              <a class="py-2 border-b border-white/10" href="#projects">Projects</a>
+              <a class="py-2 border-b border-white/10" href="#experience">Experience</a>
+              <a class="py-2 border-b border-white/10" href="#education">Education</a>
+              <a class="py-2 border-b border-white/10" href="#competitions">CTFs</a>
+              <a class="py-2 border-b border-white/10" href="#skills">Skills</a>
+              <a class="py-2" href="#contact">Contact</a>
+            </div>
+          </div>
+        </header>`
+      }
+    }
+    customElements.define('custom-navbar', CustomNavbar)
+  </script>
+
+  <!-- ===== Page Scripts ===== -->
+  <script>
+    // Feather icons
+    feather.replace()
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear()
+
+    // Theme toggle (persists in localStorage)
+    const themeBtn = document.getElementById('themeToggle')
+    const root = document.documentElement
+    const stored = localStorage.getItem('theme')
+    if (stored === 'light') root.classList.remove('dark')
+    themeBtn?.addEventListener('click', () => {
+      root.classList.toggle('dark')
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light')
+    })
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn')
+    const mobileNav = document.getElementById('mobileNav')
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'))
+  </script>
+</body>
+</html>
